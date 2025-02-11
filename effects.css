@@ -1,11 +1,13 @@
 .first {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background-color: red;
     transition: 2s ;
 }
 
 .first:hover {
+    /* :hover is a subclass */
+    /* transform: scale 2 - increase 2 times size; 0.5 decrease */
     transform: scale(2) translate(100px, 100px) rotate(90deg) skew(20deg, 20deg);
     /* width: 400px; */
     background-color: blue;
@@ -13,36 +15,51 @@
 
 .card-parent {
     margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: center;
 }
 
 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid red;
     border-radius: 12px;
     overflow: hidden;
     transition: 2s;
+
+}
+.card-text{
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .card:hover {
     transition: 2s;
+    /* Why transition is on hover subclass? to make the transition smoothier */
     transform: scale(1.1);
-    box-shadow: 0px 0px 30px 3px rgba(235, 126, 126, 0.75);
-}
-img {
-    width: 30px;
-    
+    box-shadow: 0px 0px 30px 13px rgba(235, 126, 126, 0.75);
 }
 
+img {
+    margin-top: 20px;
+    width: 30px;
+}
+
+
 .second {
-    width: 200px;
-    height: 200px;
+    width: 20px;
+    height: 20px;
     background-color: red;
     animation-name: animation-for-second;
-    animation-duration: 4s;
-    animation-iteration-count: 2;
+    animation-duration: 2s;
+    animation-iteration-count: 0; 
 }
 @keyframes animation-for-second{
+    /* keyframe is used to define the intermediate steps in an animation sequence by specifying styles for keyframes (or waypoints) along the animation timeline */
     /* first second */
     0% { 
         width: 200px;
@@ -55,5 +72,35 @@ img {
     }
     100%{
         width: 200px;
+    }
+}
+
+.parent-typing-effect{
+    display: flex;
+    margin-top: 50px;
+
+}
+.typing-effect{
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 24px;
+    animation: cursor-blinking 1s infinite, change-width 2s steps(32,end) 1;
+}
+
+@keyframes cursor-blinking {
+    0%{
+        border-right: none;
+    }
+    50%{
+        border-right: 1px solid black;
+    }
+    
+}
+@keyframes change-width {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 35%
     }
 }

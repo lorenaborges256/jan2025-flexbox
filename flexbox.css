@@ -1,21 +1,26 @@
 .flex-parent {
-  display: flex;
-  flex-wrap: wrap;
+  /* All the organization is done in the parent container */
+  /* You can center the elements on your html file  using display: flex; justify-content: center; align-items: center; and addiong its height 90vh */
+  /* Display flex is row, default is used on desktop e not mobile*/
+    height: 90vh;
+    display: flex; 
+    flex-direction: row;   
   /* The main axis is row */
-  flex-direction: row;
-  /* Justify content align items along the main axis */
-  justify-content: center;
-    /* Align items align items along the cross axis */
+  /* Justify-content align items along the main axis, if you are working with rows, the center is vertical, if you are working with column, the certer will be horizontal */
+    justify-content: center;
+  /* Align-items align items along the cross axis */
     align-items: center;
-    flex-wrap: wrap;
+  /* Flex-warp fix the problem of squigee/change the container size, if it needs more space it will junmp to the next line */
+    flex-wrap: nowrap;
 }
 
 .flex-child {
+    /* Aling contenct items in the container, use child class */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
-    width: 80px;
+    height: 200px;
+    width: 200px;
     background-color: red;
     margin: 10px;
     font-size: 48px;
@@ -23,10 +28,25 @@
 }
 
 .item-1 {
-    order: 1;
-
+    /* Flex-grow make the element take all remaining space, high priority. Higher the number biger the space its takes. If 2 ou more items have flex-grow they will take the same space. */
+    /* flex-grow: 2; */
+    /* Flex-shrink makes the element thinner than others. Higher number, thinner element. */
+    /* flex-shrink: 1; */
+    /* Order 1, for example, if you want to change the order of the elements, you can use the order property. */
+    /* If you to play with position use Order */
+    /* By default, all flex items have an order value of 0. When the order property is set to a positive integer, it changes the position of the flex item relative to other items. Specifically, items with lower order values are displayed before items with higher order values. */
+    /* -2 is smaller than -1 so will me before a -1 ordered item */
+    order: 0;
 }
 .item-2 {
-    flex-grow: 1;
-
+    order: 2;
+}
+.item-3 {
+    order: -1;
+}
+.item-4 {
+    order: -2;
+}
+.item-5 {
+    order: 1;
 }
